@@ -181,6 +181,11 @@ export type BeforeValidateHook<T extends TypeWithID = any> = (args: {
   context: RequestContext
   data?: Partial<T>
   /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
+  /**
    * Hook operation being performed
    */
   operation: CreateOrUpdateOperation
@@ -198,6 +203,11 @@ export type BeforeChangeHook<T extends TypeWithID = any> = (args: {
   collection: SanitizedCollectionConfig
   context: RequestContext
   data: Partial<T>
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   /**
    * Hook operation being performed
    */
@@ -218,6 +228,11 @@ export type AfterChangeHook<T extends TypeWithID = any> = (args: {
   data: Partial<T>
   doc: T
   /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
+  /**
    * Hook operation being performed
    */
   operation: CreateOrUpdateOperation
@@ -235,6 +250,11 @@ export type BeforeReadHook<T extends TypeWithID = any> = (args: {
   context: RequestContext
   doc: T
   /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
+  /**
    * Whether access control is being overridden for this operation
    */
   overrideAccess?: boolean
@@ -247,6 +267,11 @@ export type AfterReadHook<T extends TypeWithID = any> = (args: {
   collection: SanitizedCollectionConfig
   context: RequestContext
   doc: T
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   findMany?: boolean
   /**
    * Whether access control is being overridden for this operation

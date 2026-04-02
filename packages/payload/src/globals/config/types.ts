@@ -82,6 +82,11 @@ export type DraftFlagFromGlobalSlug<TSlug extends GlobalSlug> = GeneratedTypes e
 export type BeforeValidateHook = (args: {
   context: RequestContext
   data?: any
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   /** The global which this hook is being run on */
   global: SanitizedGlobalConfig
   originalDoc?: any
@@ -95,6 +100,11 @@ export type BeforeValidateHook = (args: {
 export type BeforeChangeHook = (args: {
   context: RequestContext
   data: any
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   /** The global which this hook is being run on */
   global: SanitizedGlobalConfig
   originalDoc?: any
@@ -109,6 +119,11 @@ export type AfterChangeHook = (args: {
   context: RequestContext
   data: any
   doc: any
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   /** The global which this hook is being run on */
   global: SanitizedGlobalConfig
   /**
@@ -122,6 +137,11 @@ export type AfterChangeHook = (args: {
 export type BeforeReadHook = (args: {
   context: RequestContext
   doc: any
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   /** The global which this hook is being run on */
   global: SanitizedGlobalConfig
   /**
@@ -134,6 +154,11 @@ export type BeforeReadHook = (args: {
 export type AfterReadHook = (args: {
   context: RequestContext
   doc: any
+  /**
+   * Whether the operation is saving or querying a draft.
+   * Reflects the `draft` argument passed to the operation, not the document's `_status` field.
+   */
+  draft?: boolean
   findMany?: boolean
   /** The global which this hook is being run on */
   global: SanitizedGlobalConfig

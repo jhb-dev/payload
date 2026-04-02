@@ -204,6 +204,7 @@ export const findOneOperation = async <T extends Record<string, unknown>>(
           (await hook({
             context: req.context,
             doc,
+            draft: replaceWithVersion,
             global: globalConfig,
             overrideAccess,
             req,
@@ -255,6 +256,7 @@ export const findOneOperation = async <T extends Record<string, unknown>>(
           (await hook({
             context: req.context,
             doc,
+            draft: replaceWithVersion,
             global: globalConfig,
             overrideAccess,
             req,

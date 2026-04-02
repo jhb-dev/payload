@@ -214,6 +214,7 @@ export const updateOperation = async <
           (await hook({
             context: req.context,
             data,
+            draft: draftArg,
             global: globalConfig,
             originalDoc,
             overrideAccess,
@@ -232,6 +233,7 @@ export const updateOperation = async <
           (await hook({
             context: req.context,
             data,
+            draft: draftArg,
             global: globalConfig,
             originalDoc,
             overrideAccess,
@@ -430,6 +432,7 @@ export const updateOperation = async <
           (await hook({
             context: req.context,
             doc: result,
+            draft: draftArg,
             global: globalConfig,
             overrideAccess,
             req,
@@ -463,6 +466,7 @@ export const updateOperation = async <
             context: req.context,
             data,
             doc: result,
+            draft: draftArg,
             global: globalConfig,
             overrideAccess,
             previousDoc: originalDoc,
